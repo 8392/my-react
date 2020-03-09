@@ -22,6 +22,7 @@ class App extends Component {
                     {
                         routes.map((route) => {
                             return (<Route 
+                                exact
                                 path={route.path}
                                 component={route.component}
                                 key={route.path}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Button } from 'antd';
 import { withRouter } from 'react-router-dom';
 import List from '../../components/Home/List'
 
@@ -26,10 +27,18 @@ class Home extends Component {
     clickList(name) {  
         console.log('调用点击的父组件', name)
     }
+    goDetail(path) {
+        console.log('详情', path)
+        let name = '北京'
+        // this.props.history.push(`/detail/22?name=${name}`, {age: 66})
+        this.props.history.push('/list')
+    }
     render() {
         return (
             <div>
                 首页
+                <Button type="primary" onClick={this.goDetail.bind(this, '/detail')}>详情</Button>
+                <Button type="primary" onClick={this.goDetail.bind(this, '/list')}>列表</Button>
                 {
                     this.state.list.map((curr,index) => {
                         return(
