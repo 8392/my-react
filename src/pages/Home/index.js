@@ -19,10 +19,14 @@ class Home extends Component {
                 city: '成都',
                 age: 35,
             }],
+            student: {
+                name: '李明',
+                age: 56,
+            }
         }
     }
     componentDidMount() {
-        console.log('路由', this)
+        // console.log('路由', this)
     }
     clickList(name) {  
         console.log('调用点击的父组件', name)
@@ -42,7 +46,7 @@ class Home extends Component {
                 {
                     this.state.list.map((curr,index) => {
                         return(
-                            <List list={curr} key={index} clickList={this.clickList.bind(this)} />
+                            <List list={curr} student={this.state.student} key={index} clickList={this.clickList.bind(this)} />
                         )
                     })
                 }

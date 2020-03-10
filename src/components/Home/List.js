@@ -3,9 +3,10 @@ import React, { Component } from 'react'
 export default class List extends Component {
     constructor(props) {
         super(props)
-        console.log('props', props.list.city)
+        console.log('props', props)
         this.state = {
-            city: props.list,
+            city: props.list.city,
+            name: '小红'
         }
     }
     componentDidMount() {
@@ -15,6 +16,11 @@ export default class List extends Component {
         // console.log('测试点击')
         this.props.clickList(item)
     }
+    clickBtn = () => {
+        this.setState({ city: {city: '罗马'} }, () => {
+            console.log('点击', this.state.city)
+        })
+    }
     render() {
         const { clickList } = this.props;
         // console.log(clickList(66))
@@ -22,9 +28,10 @@ export default class List extends Component {
             <div>
                 {/* 列表数据 */}
                 {/* {this.props.list} */}
-                <div onClick={clickList.bind(this, this.props.list.city)}>
-                    {this.props.list.city}
+                <div onClick={clickList.bind(this, this.state.city)}>
+                    {this.state.city.city}
                 </div>
+                <div onClick={this.clickBtn}>点击修改</div>?
             </div>
         )
     }

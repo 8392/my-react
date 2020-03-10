@@ -19,6 +19,11 @@ function List() {
         }]
         setState(arr1)
     }
+    let arr = [{
+        tit: '姓名'
+    },{
+        
+    }]
     
     return (
         <div>
